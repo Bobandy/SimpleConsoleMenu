@@ -8,18 +8,18 @@ a simple and customisable c# console menu system
 // Setup the menu
 ConsoleMenu mainMenu = new ConsoleMenu();
 
-ConsoleMenu subMenu1 = new ConsoleMenu("==>");
+Menu subMenu1 = new ("==>");
 subMenu1.SubTitle = "---------------- Secret Menu -----------------";
-subMenu1.addMenuItem(0, "backToMain", subMenu1.hideMenu);
+subMenu1.AddMenuItem("backToMain", subMenu1.Back);
 subMenu1.ParentMenu = mainMenu;
 
 mainMenu.Header = headerText;
 subMenu1.Header = mainMenu.Header;
 
 mainMenu.SubTitle = "-------------------- Menu ----------------------";
-mainMenu.addMenuItem(0, "Hello World!", HelloWorld);
-mainMenu.addMenuItem(1, "Secret Menu", subMenu1.showMenu);
-mainMenu.addMenuItem(2, "Exit", Exit);
+mainMenu.AddMenuItem("Hello World!", HelloWorld);
+mainMenu.AddMenuItem("Secret Menu", subMenu1.ShowMenu);
+mainMenu.AddMenuItem("Exit", Exit);
 // Display the menu
-mainMenu.showMenu();
+mainMenu.ShowMenu();
 ```
